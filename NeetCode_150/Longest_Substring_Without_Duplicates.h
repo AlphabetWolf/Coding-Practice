@@ -22,9 +22,13 @@ public:
             }
             else
             {
+                maxLen = max(maxLen, (int)myQueue.size());
                 myQueue.push(s[i]);
-
-                maxLen = max(maxLen, (int)myQueue.size()-1);
+                while (myQueue.front() != s[i]) 
+                {
+                    myMap[myQueue.front()] = 0;
+                    myQueue.pop();
+                }
                 myQueue.pop();
                 myMap[s[i]] = 1;
             }
